@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER stig@stig.io
 
-# Apache 1.3.42 with mod_perl 1.31 on Centos 7
+# Apache 1.3.42 with mod_perl 1.31 and perl 5.16.3 on Centos 7
 
 # These packages are legacy software and should not be used for anything
 # serious. Your computer might implode, catch fire or do other unexpected
@@ -62,5 +62,5 @@ RUN cpanm --notest Apache::Test
 #
 RUN cd libapreq-1.34 && perl Makefile.PL && make && make install
 
-CMD /usr/local/sbin/httpd -X
+CMD /usr/local/apache/bin/httpd -X
 
